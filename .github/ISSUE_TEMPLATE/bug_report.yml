@@ -1,0 +1,23 @@
+name: 🐞 Bug Report
+description: Report a problem or error
+labels: ['bug']
+assignees:
+    - l0uisgrange
+body:
+    - type: textarea
+      id: description
+      attributes:
+          label: Description
+          description: A clear and concise description of the bug.
+          placeholder: Describe the bug here...
+      validations:
+          required: true
+    - type: textarea
+      id: additional
+      attributes:
+          label: System Info
+          description: Output of `npx envinfo --system --binaries --browsers --npmPackages "{fmpocket,zod}"`
+          placeholder: System, Binaries, Browsers
+          render: Shell
+      validations:
+          required: false

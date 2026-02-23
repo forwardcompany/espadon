@@ -1,0 +1,22 @@
+name: 🌐 Endpoint or feature request
+description: Propose a new endpoint or feature
+labels: ['enhancement']
+assignees:
+    - l0uisgrange
+body:
+    - type: textarea
+      id: description
+      attributes:
+          label: Description
+          description: Clearly explain the endpoint or feature you are requesting.
+          placeholder: Describe here
+      validations:
+          required: true
+    - type: checkboxes
+      id: implementation
+      attributes:
+          label: Contribute
+          description: Are you willing to help implement this feature/endpoint?
+          options:
+              - label: I am willing to submit a pull request for this feature
+              - label: I can help with testing this feature
