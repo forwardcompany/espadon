@@ -1,8 +1,5 @@
 /** Identifies a single vessel by one of its unique keys. */
-export type VesselIdentifier =
-    | { uuid: string }
-    | { mmsi: number | string }
-    | { imo: number | string };
+export type VesselIdentifier = { uuid: string } | { mmsi: number | string } | { imo: number | string };
 
 /** Parameters for the `/vessel_inradius` endpoint (static or dynamic center). */
 export type VesselInradiusParams = {
@@ -23,8 +20,7 @@ export type VesselInradiusParams = {
 );
 
 /** Parameters for the `/vessel_history` endpoint. */
-export type VesselHistoryParams = VesselIdentifier &
-    ({ days: number } | { from: Date | string; to: Date | string } | {});
+export type VesselHistoryParams = VesselIdentifier & ({ days: number } | { from: Date | string; to: Date | string } | {});
 
 /** Parameters for the `/vessel_find` endpoint. */
 export type VesselFindParams = {
@@ -61,11 +57,7 @@ export type PortFindParams = {
 };
 
 /** Parameters for the `/port` (port terminals) endpoint. */
-export type PortParams =
-    | { name: string }
-    | { uuid: string }
-    | { unlocode: string }
-    | { lat: number; lon: number; radius?: number };
+export type PortParams = { name: string } | { uuid: string } | { unlocode: string } | { lat: number; lon: number; radius?: number };
 
 /** Parameters for the `/api/ext/route` (sea routes) endpoint. */
 export type RouteParams = {

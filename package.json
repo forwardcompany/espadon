@@ -1,7 +1,7 @@
 {
     "name": "espadon",
     "version": "1.0.0",
-    "description": "A lightweight universal typed client for the Financial Modeling Prep (FMP) API. Gets your financial data perfectly formatted.",
+    "description": "A lightweight (~50 kB) universal typed client for Datalastic APIs: vessel live tracking, info, port info, routes, ...",
     "author": {
         "name": "Louis Grange",
         "url": "https://github.com/l0uisgrange"
