@@ -30,14 +30,14 @@ console.log(vessel.name);
 
 The `Espadon` constructor supports the following options.
 
-| Option     | Description                      | Default                              |
-| :--------- | :------------------------------- | :----------------------------------- |
-| `key`      | Your API secret key              | _None_ (required)                    |
+| Option     | Description                      | Default                           |
+| :--------- | :------------------------------- | :-------------------------------- |
+| `key`      | Your API secret key              | _None_ (required)                 |
 | `baseUrl`  | The base endpoint URL            | `https://api.datalastic.com/api/` |
-| `version`  | The API version                  | `v0`                             |
-| `validate` | Validates JSON and coerces data  | `true`                               |
-| `debug`    | Logs the URL before the request  | `false`                              |
-| `timeout`  | Requests timeout in milliseconds | `null`                               |
+| `version`  | The API version                  | `v0`                              |
+| `validate` | Validates JSON and coerces data  | `true`                            |
+| `debug`    | Logs the URL before the request  | `false`                           |
+| `timeout`  | Requests timeout in milliseconds | `null`                            |
 
 ## Endpoints
 
@@ -54,10 +54,10 @@ let data = await esp.vessel('b8625b67-7142-cfd1-7b85-595cebfe4191');
 let data = await esp.vesselPro({ imo: 9525338 });
 // Bulk with up to 100 vessels in a single call
 let data = await esp.vesselBulk([
-  { imo: 9525338 },
-  { imo: 9249403 },
-  { mmsi: 235362000 },
-  // ...
+    { imo: 9525338 },
+    { imo: 9249403 },
+    { mmsi: 235362000 },
+    // ...
 ]);
 ```
 

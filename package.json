@@ -2,29 +2,29 @@
     "name": "espadon",
     "version": "1.0.1",
     "description": "A lightweight (~50 kB) universal typed client for Datalastic APIs: vessel live tracking, info, port info, routes, ...",
+    "keywords": [
+        "data",
+        "datalastic",
+        "isomorphic",
+        "marine",
+        "universal",
+        "vessel"
+    ],
+    "license": "MIT",
     "author": {
         "name": "Louis Grange",
         "url": "https://github.com/l0uisgrange"
     },
-    "license": "MIT",
-    "type": "module",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/forwardcompany/espadon.git"
     },
-    "keywords": [
-        "datalastic",
-        "vessel",
-        "marine",
-        "data",
-        "isomorphic",
-        "universal"
-    ],
-    "main": "dist/index.mjs",
-    "types": "dist/index.d.mts",
     "files": [
         "dist"
     ],
+    "type": "module",
+    "main": "dist/index.mjs",
+    "types": "dist/index.d.mts",
     "scripts": {
         "build": "tsdown",
         "lint": "oxlint --ignore-pattern 'test/**'",
@@ -32,15 +32,15 @@
         "check:format": "oxfmt --check **/*",
         "format": "oxfmt **/*"
     },
-    "devDependencies": {
-        "@types/node": "^24.10.13",
-        "oxfmt": "^0.35.0",
-        "oxlint": "^1.50.0",
-        "tsdown": "^0.20.3",
-        "typescript": "^5.9.3",
-        "vitest": "^4.0.18"
-    },
     "dependencies": {
         "zod": "^4.3.6"
+    },
+    "devDependencies": {
+        "@types/node": "^24.12.0",
+        "oxfmt": "^0.42.0",
+        "oxlint": "^1.57.0",
+        "tsdown": "^0.21.6",
+        "typescript": "^5.9.3",
+        "vitest": "^4.1.2"
     }
 }
