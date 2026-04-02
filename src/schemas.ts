@@ -23,8 +23,8 @@ export const vesselSchema = z.object({
 export const vesselProSchema = z.object({
     uuid: z.string(),
     name: z.nullable(z.string()),
-    mmsi: z.nullable(z.string()),
-    imo: z.nullable(z.string()),
+    mmsi: z.nullable(z.coerce.number()),
+    imo: z.nullable(z.coerce.number()),
     eni: z.nullable(z.string()),
     country_iso: z.nullable(z.string()),
     type: z.nullable(z.string()),
@@ -34,12 +34,14 @@ export const vesselProSchema = z.object({
     current_draught: z.nullable(z.number()),
     speed: z.nullable(z.number()),
     course: z.nullable(z.number()),
-    navigational_status: z.nullable(z.string()),
     heading: z.nullable(z.number()),
+    navigation_status: z.nullable(z.string()),
     destination: z.nullable(z.string()),
     dest_port: z.nullable(z.string()),
+    dest_port_uuid: z.nullable(z.string()),
     dest_port_unlocode: z.nullable(z.string()),
     dep_port: z.nullable(z.string()),
+    dep_port_uuid: z.nullable(z.string()),
     dep_port_unlocode: z.nullable(z.string()),
     last_position_epoch: z.nullable(z.number()),
     last_position_UTC: z.nullable(z.string()),
@@ -47,6 +49,8 @@ export const vesselProSchema = z.object({
     atd_UTC: z.nullable(z.string()),
     eta_epoch: z.nullable(z.number()),
     eta_UTC: z.nullable(z.string()),
+    timezone_offset_sec: z.nullable(z.number()),
+    timezone: z.nullable(z.coerce.number()),
 });
 
 export const vesselBulkSchema = z.object({
@@ -55,8 +59,8 @@ export const vesselBulkSchema = z.object({
         z.object({
             uuid: z.string(),
             name: z.nullable(z.string()),
-            mmsi: z.nullable(z.string()),
-            imo: z.nullable(z.string()),
+            mmsi: z.nullable(z.coerce.number()),
+            imo: z.nullable(z.coerce.number()),
             eni: z.nullable(z.string()),
             country_iso: z.nullable(z.string()),
             type: z.nullable(z.string()),
