@@ -50,7 +50,7 @@ export const vesselProSchema = z.object({
     eta_epoch: z.nullable(z.number()),
     eta_UTC: z.nullable(z.string()),
     timezone_offset_sec: z.nullable(z.number()),
-    timezone: z.nullable(z.coerce.number()),
+    timezone: z.nullable(z.string()),
 });
 
 export const vesselBulkSchema = z.object({
