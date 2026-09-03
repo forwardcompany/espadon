@@ -9,6 +9,7 @@ import type {
     PortFindParams,
     PortParams,
     RouteParams,
+    WeatherParams
 } from './types.js';
 
 export type { VesselIdentifier, VesselInradiusParams, VesselHistoryParams, VesselFindParams, PortFindParams, PortParams, RouteParams };
@@ -228,6 +229,10 @@ export class EspadonClient {
     async satellite(params: VesselIdentifier | string) {
         const normalized = typeof params === 'string' ? { uuid: params } : params;
         return this.#callEndpoint('/vessel_pro_est', null, normalized, 'ext');
+    }
+
+    async weather(params: WestherParams) {
+        return thid.#callEndpoint('/weather', null, params)
     }
 }
 
