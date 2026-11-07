@@ -1,14 +1,15 @@
 {
     "compilerOptions": {
-        "target": "ES2024",
-        "module": "NodeNext",
+        "target": "esnext",
+        "module": "esnext",
         "esModuleInterop": true,
         "outDir": "./dist",
         "rootDir": "./src",
         "declaration": true,
-        "moduleResolution": "nodenext",
+        "moduleResolution": "bundler",
         "forceConsistentCasingInFileNames": true,
-        "strict": true
+        "strict": true,
+        "types": ["node"]
     },
     "include": ["src/**/*"]
 }

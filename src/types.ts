@@ -70,3 +70,126 @@ export type RouteParams = {
     port_uuid_to?: string;
     port_unlocode_to?: string;
 };
+
+/** Live position of a vessel, as returned inside list endpoints (`/vessel_inradius`, `/vessel_find`, ...). */
+export type VesselSummary = {
+    uuid: string;
+    name: string | null;
+    mmsi: number | string | null;
+    imo: number | string | null;
+    eni: string | null;
+    country_iso: string | null;
+    type: string | null;
+    type_specific: string | null;
+    lat: number | null;
+    lon: number | null;
+    speed: number | null;
+    course: number | null;
+    heading: number | null;
+    navigation_status: string | null;
+    destination: string | null;
+    last_position_epoch: number | null;
+    last_position_UTC: string | null;
+};
+
+/** Response of `/vessel_inradius`. */
+export type VesselInradiusResponse = {
+    total: number;
+    next: string | null;
+    vessels: VesselSummary[];
+};
+
+/** One historical position returned by `/vessel_history`. */
+export type VesselHistoryEntry = VesselSummary & {
+    eta_epoch: number | null;
+    eta_UTC: string | null;
+};
+
+/** Response of `/vessel_history`. */
+export type VesselHistoryResponse = VesselHistoryEntry[];
+
+/** Response of `/vessel_info` (ship specifications). */
+export type VesselInfoResponse = {
+    uuid: string;
+    name: string | null;
+    mmsi: number | string | null;
+    imo: number | string | null;
+    eni: string | null;
+    callsign: string | null;
+    country_iso: string | null;
+    type: string | null;
+    type_specific: string | null;
+    current_draught: number | null;
+    gross_tonnage: number | null;
+    deadweight: number | null;
+    teu: number | null;
+    liquid_gas_capacity: number | null;
+    length: number | null;
+    breadth: number | null;
+    year_built: number | null;
+};
+
+/** One search result of `/vessel_find`. */
+export type VesselSearchResult = VesselSummary & {
+    gross_tonnage: number | null;
+    deadweight: number | null;
+    length: number | null;
+    breadth: number | null;
+    year_built: number | null;
+};
+
+/** Response of `/vessel_find`. */
+export type VesselFindResponse = {
+    total: number;
+    next: string | null;
+    vessels: VesselSearchResult[];
+};
+
+/** One search result of `/port_find`. */
+export type PortSummary = {
+    uuid: string;
+    name: string | null;
+    unlocode: string | null;
+    country_iso: string | null;
+    port_type: string | null;
+    lat: number | null;
+    lon: number | null;
+};
+
+/** Response of `/port_find`. */
+export type PortFindResponse = {
+    total: number;
+    next: string | null;
+    ports: PortSummary[];
+};
+
+/** One terminal of a port. */
+export type PortTerminal = {
+    uuid: string;
+    name: string | null;
+    lat: number | null;
+    lon: number | null;
+    operator_name: string | null;
+};
+
+/** Response of `/port` (port details with its terminals). */
+export type PortResponse = PortSummary & {
+    terminals: PortTerminal[];
+};
+
+/** Response of `/api/ext/route` (sea route). `coordinates` are `[lat, lon]` pairs. */
+export type RouteResponse = {
+    distance: number | null;
+    duration: number | null;
+    coordinates: [number, number][];
+};
+
+/** Response of `/api/ext/vessel_pro_est` (SAT-E estimated position). */
+export type VesselEstimatedResponse = VesselSummary & {
+    estimated: boolean;
+    dest_port: string | null;
+    dest_port_uuid: string | null;
+    dest_port_unlocode: string | null;
+    eta_epoch: number | null;
+    eta_UTC: string | null;
+};
