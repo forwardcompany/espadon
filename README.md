@@ -30,14 +30,26 @@ console.log(vessel.name);
 
 The `Espadon` constructor supports the following options.
 
-| Option     | Description                      | Default                           |
-| :--------- | :------------------------------- | :-------------------------------- |
-| `key`      | Your API secret key              | _None_ (required)                 |
-| `baseUrl`  | The base endpoint URL            | `https://api.datalastic.com/api/` |
-| `version`  | The API version                  | `v0`                              |
-| `validate` | Validates JSON and coerces data  | `true`                            |
-| `debug`    | Logs the URL before the request  | `false`                           |
-| `timeout`  | Requests timeout in milliseconds | `null`                            |
+| Option     | Description                                                     | Default                           |
+| :--------- | :-------------------------------------------------------------- | :-------------------------------- |
+| `key`      | Your API secret key                                             | _None_ (required)                 |
+| `baseUrl`  | The base endpoint URL                                           | `https://api.datalastic.com/api/` |
+| `version`  | The API version                                                 | `v0`                              |
+| `validate` | Validates JSON and coerces data                                 | `true`                            |
+| `debug`    | Logs the URL before the request                                 | `false`                           |
+| `timeout`  | Requests timeout in milliseconds                                | `null`                            |
+| `dev`      | Simulates the API with fake data (no HTTP call) — see below     | `false`                           |
+
+## Dev mode (mock API)
+
+Pass `dev: true` to get fake data instead of calling the real API — useful for local development and tests:
+
+```ts
+const esp = Espadon({ key: '<your_key>', dev: true });
+const vessel = await esp.vessel({ imo: 9525338 });
+```
+
+Note that this feature is guarded by `process.env.NODE_ENV` and won't be available in production builds.
 
 ## Endpoints
 
